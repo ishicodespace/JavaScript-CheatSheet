@@ -2,124 +2,77 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Cheatsheet</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>JavaScript Cheatsheet - Quick Reference Guide for Developers</title>
+    <meta name="title" content="JavaScript Cheatsheet - Quick Reference Guide for Developers" />
+    <meta name="description"
+        content="Comprehensive JavaScript cheatsheet covering basics to advanced topics. Quick reference for variables, arrays, functions, async/await, and more. Perfect for developers and interview prep." />
+    <meta name="keywords"
+        content="JavaScript, cheatsheet, JS reference, programming guide, web development, JavaScript tutorial, coding reference, developer tools" />
+    <meta name="author" content="Ishika" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ishicodespace.github.io/JavaScript-Cheat-Sheet/" />
+    <meta property="og:title" content="JavaScript Cheatsheet - Quick Reference Guide" />
+    <meta property="og:description"
+        content="Comprehensive JavaScript reference from basics to advanced. Master variables, arrays, functions, async/await and more." />
+    <meta property="og:image" content="https://ishicodespace.github.io/JavaScript-Cheat-Sheet/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ishicodespace.github.io/JavaScript-Cheat-Sheet/" />
+    <meta property="twitter:title" content="JavaScript Cheatsheet - Quick Reference Guide" />
+    <meta property="twitter:description"
+        content="Comprehensive JavaScript reference from basics to advanced. Master variables, arrays, functions, async/await and more." />
+    <meta property="twitter:image" content="https://ishicodespace.github.io/JavaScript-Cheat-Sheet/og-image.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ishicodespace.github.io/JavaScript-Cheat-Sheet/" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .cat-group {
-            margin-bottom: 24px;
-        }
 
-        .cat-title {
-            padding: 0 16px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #8b949e;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .concept-ref a {
-            color: #58a6ff;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        /* Error Box */
-        #global-error {
-            display: none;
-            padding: 20px;
-            background: #ab1f1f;
-            color: white;
-            font-family: sans-serif;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-        }
-    </style>
-    <!-- Vue 3 CDN -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JavaScript Cheatsheet",
+      "description": "Comprehensive JavaScript reference guide covering basics to advanced topics including variables, arrays, functions, promises, and async/await.",
+      "url": "https://ishicodespace.github.io/JavaScript-Cheat-Sheet/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ishika"
+      }
+    }
+    </script>
 </head>
 
 <body>
-    <div id="global-error"></div>
-
-    <div id="app" class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo-area">
-                <div class="logo-icon">JS</div>
-                <h1>Cheatsheet</h1>
-            </div>
-
-            <div class="search-container">
-                <input type="text" id="search-input" v-model="searchQuery" placeholder="Search..." autocomplete="off">
-            </div>
-
-            <nav id="sidebar-nav">
-                <div v-if="filteredStructure.length === 0" class="no-results">
-                    No results.
-                </div>
-
-                <div v-for="cat in filteredStructure" :key="cat.id" class="cat-group">
-                    <div class="cat-title">{{ cat.title }}</div>
-
-                    <a v-for="page in cat.pages" :key="page.slug" class="nav-item"
-                        :class="{ active: activePage && activePage.slug === page.slug }" @click="selectPage(page)">
-                        {{ page.title }}
-                    </a>
-                </div>
-            </nav>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <template v-if="activePage">
-                <header class="content-header">
-                    <h2>{{ activePage.title }}</h2>
-                    <div v-if="activePage.reference" class="concept-ref">
-                        <a :href="activePage.reference" target="_blank">MDN Reference &rarr;</a>
-                    </div>
-                </header>
-
-                <div class="content-body">
-                    <!-- Dynamic Blocks from Parser -->
-                    <div v-for="(block, idx) in currentBlocks" :key="idx" class="concept-block">
-                        <div v-if="block.title" class="concept-header">
-                            <span class="concept-title">{{ block.title }}</span>
-                        </div>
-                        <div class="concept-content">
-                            <pre class="code-snippet" v-html="highlight(block.body)"></pre>
-                        </div>
-                    </div>
-                </div>
-            </template>
-            <template v-else>
-                <div class="empty-state">Select a topic.</div>
-            </template>
-        </main>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        window.onerror = function (msg, url, line, col, error) {
-            const errDiv = document.getElementById('global-error');
-            errDiv.style.display = 'block';
-            errDiv.textContent = `JS Error: ${msg} (Line ${line})`;
-            return false;
-        };
-    </script>
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
 </body>
 
 </html>
