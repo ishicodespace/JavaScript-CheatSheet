@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { cheatsheetData } from './data'
+import { cheatsheet } from './data'
 import type { Page, ParsedBlock } from './types'
 import Sidebar from './components/Sidebar.vue'
 import ContentView from './components/ContentView.vue'
 
 const searchQuery = ref('')
 const activePage = ref<Page | null>(null)
+const cheatsheetData = cheatsheet as any; // Handle loose typing from data.ts
+
 
 // Convert object to array for easier filtering
 const categories = computed(() => {
@@ -87,6 +89,8 @@ const currentBlocks = computed(() => {
 
 const selectPage = (page: Page) => {
   activePage.value = page
+  // Update browser tab title
+  document.title = `${page.title} - JavaScript Cheatsheet`
 }
 
 // Initialize with first page

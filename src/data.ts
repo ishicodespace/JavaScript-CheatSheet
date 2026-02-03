@@ -1,13 +1,22 @@
-import type { CheatsheetData } from './types'
+// JavaScript Cheatsheet – Explanation Style
+// Each page = readable notes (not just syntax)
 
-export const cheatsheetData: CheatsheetData = {
-    basic: {
-        title: "Basic JavaScript",
-        pages: [
-            {
-                slug: "variables-and-types",
-                title: "Variables and Data Types",
-                content: `Variables are used to store data in memory. JavaScript provides three ways to declare variables: let, const, and var.
+export const cheatsheet = {
+
+  // =================================================
+  // BASIC JAVASCRIPT
+  // =================================================
+  basic: {
+    title: "Basic JavaScript",
+
+    pages: [
+
+      {
+        slug: "variables-and-types",
+        title: "Variables and Data Types",
+
+        content: `
+Variables are used to store data in memory. JavaScript provides three ways to declare variables: let, const, and var.
 
 let and const are modern and recommended. var is old and should generally be avoided.
 
@@ -38,12 +47,16 @@ typeof 5        // "number"
 typeof "hi"     // "string"
 
 Tip:
-JavaScript is dynamically typed. You don't declare types manually.`
-            },
-            {
-                slug: "operators",
-                title: "Operators",
-                content: `Operators allow you to perform operations on values.
+JavaScript is dynamically typed. You don’t declare types manually.
+`
+      },
+
+      {
+        slug: "operators",
+        title: "Operators",
+
+        content: `
+Operators allow you to perform operations on values.
 
 Arithmetic
 -------------------
@@ -73,12 +86,16 @@ Nullish Coalescing
 -------------------
 value ?? "default"
 
-Returns default only if value is null or undefined.`
-            },
-            {
-                slug: "control-flow",
-                title: "Control Flow (Conditions and Loops)",
-                content: `Control flow determines how your program runs step-by-step.
+Returns default only if value is null or undefined.
+`
+      },
+
+      {
+        slug: "control-flow",
+        title: "Control Flow (Conditions and Loops)",
+
+        content: `
+Control flow determines how your program runs step-by-step.
 
 If / Else
 -------------------
@@ -116,18 +133,28 @@ for...in (object keys):
 for (const key in obj) {}
 
 Tip:
-Use for...of for arrays. Avoid for...in with arrays.`
-            }
-        ]
-    },
+Use for...of for arrays. Avoid for...in with arrays.
+`
+      }
 
-    arrays: {
-        title: "Arrays",
-        pages: [
-            {
-                slug: "array-basics",
-                title: "Array Basics",
-                content: `Arrays store multiple values inside a single variable.
+    ]
+  },
+
+
+  // =================================================
+  // ARRAYS
+  // =================================================
+  arrays: {
+    title: "Arrays",
+
+    pages: [
+
+      {
+        slug: "array-basics",
+        title: "Array Basics",
+
+        content: `
+Arrays store multiple values inside a single variable.
 
 Creating Arrays
 -------------------
@@ -160,12 +187,16 @@ for (const fruit of fruits) {
 }
 
 Tip:
-Arrays in JavaScript are dynamic. They can grow or shrink anytime.`
-            },
-            {
-                slug: "array-methods",
-                title: "Common Array Methods",
-                content: `JavaScript provides powerful built-in methods to work with arrays.
+Arrays in JavaScript are dynamic. They can grow or shrink anytime.
+`
+      },
+
+      {
+        slug: "array-methods",
+        title: "Common Array Methods",
+
+        content: `
+JavaScript provides powerful built-in methods to work with arrays.
 
 map()
 -------------------
@@ -204,18 +235,28 @@ Add/remove elements in place.
 arr.splice(1, 2)
 
 Tip:
-map/filter/reduce are heavily used in interviews and real projects.`
-            }
-        ]
-    },
+map/filter/reduce are heavily used in interviews and real projects.
+`
+      }
 
-    functions: {
-        title: "Functions",
-        pages: [
-            {
-                slug: "function-basics",
-                title: "Functions Basics",
-                content: `Functions group reusable code.
+    ]
+  },
+
+
+  // =================================================
+  // FUNCTIONS
+  // =================================================
+  functions: {
+    title: "Functions",
+
+    pages: [
+
+      {
+        slug: "function-basics",
+        title: "Functions Basics",
+
+        content: `
+Functions group reusable code.
 
 Regular Function
 -------------------
@@ -237,12 +278,16 @@ Arrow Function
 
 const add = (a,b) => a + b
 
-Arrow functions are shorter and commonly used in modern JavaScript.`
-            },
-            {
-                slug: "scope-closures",
-                title: "Scope, this, and Closures",
-                content: `Scope
+Arrow functions are shorter and commonly used in modern JavaScript.
+`
+      },
+
+      {
+        slug: "scope-closures",
+        title: "Scope, this, and Closures",
+
+        content: `
+Scope
 -------------------
 Scope defines where variables are accessible.
 
@@ -271,18 +316,28 @@ function counter(){
   return () => ++count
 }
 
-This is very important for interviews.`
-            }
-        ]
-    },
+This is very important for interviews.
+`
+      }
 
-    advanced: {
-        title: "Advanced JavaScript",
-        pages: [
-            {
-                slug: "promises-async",
-                title: "Promises and Async/Await",
-                content: `JavaScript handles time-consuming tasks asynchronously.
+    ]
+  },
+
+
+  // =================================================
+  // ASYNC + ADVANCED
+  // =================================================
+  advanced: {
+    title: "Advanced JavaScript",
+
+    pages: [
+
+      {
+        slug: "promises-async",
+        title: "Promises and Async/Await",
+
+        content: `
+JavaScript handles time-consuming tasks asynchronously.
 
 Promises
 -------------------
@@ -302,12 +357,16 @@ async function load() {
 
 This makes async code look synchronous and easier to read.
 
-Always use try/catch for errors.`
-            },
-            {
-                slug: "event-loop",
-                title: "Call Stack and Event Loop",
-                content: `JavaScript is single-threaded.
+Always use try/catch for errors.
+`
+      },
+
+      {
+        slug: "event-loop",
+        title: "Call Stack and Event Loop",
+
+        content: `
+JavaScript is single-threaded.
 
 Only one task runs at a time.
 
@@ -327,8 +386,10 @@ Event Loop
 -------------------
 Moves tasks to stack when ready.
 
-Understanding this explains how setTimeout and promises work.`
-            }
-        ]
-    }
+Understanding this explains how setTimeout and promises work.
+`
+      }
+
+    ]
+  }
 }
