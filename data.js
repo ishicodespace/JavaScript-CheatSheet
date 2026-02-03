@@ -15,7 +15,7 @@ window.cheatsheetData = {
         slug: "variables-and-types",
         title: "Variables and Data Types",
 
-        content: "Variables are used to store data in memory. JavaScript provides three ways to declare variables: let, const, and var.\n\nlet and const are modern and recommended. var is old and should generally be avoided.\n\nDeclaring Variables\n-------------------\n\nlet age = 21\nconst name = \"Ishika\"\n\nUse const when the value should not change. Use let when reassignment is needed.\n\nData Types\n-------------------\nJavaScript has primitive types:\n\nstring      → \"hello\"\nnumber      → 10, 3.14\nboolean     → true/false\nnull        → empty value\nundefined   → not assigned\nbigint      → very large numbers\nsymbol      → unique identifiers\n\nType Checking\n-------------------\n\ntypeof 5        // \"number\"\ntypeof \"hi\"     // \"string\"\n\nTip:\nJavaScript is dynamically typed. You don't declare types manually."
+        content: "Variables are used to store data in memory. JavaScript provides three ways to declare variables: let, const, and var.\n\nlet and const are modern and recommended. var is old and should generally be avoided.\n\nDeclaring Variables\n-------------------\n\nlet age = 21\nconst name = \"Sushi\"\n\nUse const when the value should not change. Use let when reassignment is needed.\n\nData Types\n-------------------\nJavaScript has primitive types:\n\nstring      → \"hello\"\nnumber      → 10, 3.14\nboolean     → true/false\nnull        → empty value\nundefined   → not assigned\nbigint      → very large numbers\nsymbol      → unique identifiers\n\nType Checking\n-------------------\n\ntypeof 5        // \"number\"\ntypeof \"hi\"     // \"string\"\n\nTip:\nJavaScript is dynamically typed. You don't declare types manually."
       },
 
       {
@@ -81,7 +81,7 @@ window.cheatsheetData = {
         slug: "scope-closures",
         title: "Scope, this, and Closures",
 
-        content: "Scope\n-------------------\nScope defines where variables are accessible.\n\nTypes:\n- Global\n- Function\n- Block\n\nthis\n-------------------\nRefers to the object calling the function.\n\nconst user = {\n  name: \"Ishika\",\n  greet() {\n    console.log(this.name)\n  }\n}\n\nClosures\n-------------------\nA function remembers variables from its outer scope.\n\nfunction counter(){\n  let count = 0\n  return () => ++count\n}\n\nThis is very important for interviews."
+        content: "Scope\n-------------------\nScope defines where variables are accessible.\n\nTypes:\n- Global\n- Function\n- Block\n\nthis\n-------------------\nRefers to the object calling the function.\n\nconst user = {\n  name: \"Emily\",\n  greet() {\n    console.log(this.name)\n  }\n}\n\nClosures\n-------------------\nA function remembers variables from its outer scope.\n\nfunction counter(){\n  let count = 0\n  return () => ++count\n}\n\nThis is very important for interviews."
       }
 
     ]

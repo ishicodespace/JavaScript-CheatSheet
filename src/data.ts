@@ -23,8 +23,8 @@ let and const are modern and recommended. var is old and should generally be avo
 Declaring Variables
 -------------------
 
-let age = 21
-const name = "Ishika"
+let age = 19
+const name = "Sushi"
 
 Use const when the value should not change. Use let when reassignment is needed.
 
