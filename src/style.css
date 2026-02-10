@@ -219,9 +219,15 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 998;
   backdrop-filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .mobile-overlay {
+    z-index: 998 !important;
+  }
 }
 
 /* ==================== SIDEBAR ==================== */
@@ -565,19 +571,54 @@ body {
   }
 
   /* Sidebar mobile behavior */
-  .sidebar {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    bottom: 0;
-    width: 280px;
-    z-index: 999;
-    transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  aside.sidebar {
+    position: fixed !important;
+    top: 60px !important;
+    left: -100% !important;
+    bottom: 0 !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    min-height: calc(100vh - 60px) !important;
+    max-height: calc(100vh - 60px) !important;
+    height: 100% !important;
+    z-index: 999 !important;
+    transition: left 0.3s ease-out !important;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.4) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: var(--bg-secondary) !important;
+    border-right: 1px solid var(--border-subtle) !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
-  .sidebar--mobile-open {
-    transform: translateX(0);
+  aside.sidebar.sidebar--mobile-open,
+  .sidebar--mobile-open.sidebar,
+  .sidebar.sidebar--mobile-open {
+    left: 0 !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Ensure sidebar children fill height properly */
+  @media (max-width: 768px) {
+    #sidebar-nav {
+      flex: 1 !important;
+      overflow-y: auto !important;
+      max-height: none !important;
+      height: auto !important;
+    }
+
+    .logo-area,
+    .search-container {
+      flex-shrink: 0 !important;
+    }
+  }
+
+  /* Prevent body scroll when menu is open */
+  body:has(.sidebar--mobile-open) {
+    overflow: hidden;
   }
 
   /* Hide desktop header on mobile */
